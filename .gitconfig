@@ -1,0 +1,10 @@
+[user]
+	name = ildyria
+	email = 
+[push]
+	default = matching
+[log]
+	date = short
+[format]
+	pretty = format:%C(yellow)%h %>(10)%Cred%ad %<(13)%C(cyan)%an %Cgreen%d %Creset%s
+

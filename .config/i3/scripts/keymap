@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Aprrently localectl status does not update on keymap change. However, setxkbmap does.
+XKB_OUTPUT=$(setxkbmap -query)
+VC_KEYMAP=$(echo "${XKB_OUTPUT}" | grep "layout" | awk -F ':' '{print $2}' | tr -d ' ')
+
+# Keymap has not been specific, so it's not configured properly
+if [[ "${VC_KEYMAP}" == "" ]]; then
+  exit 1
+fi
+
+lockLine=$(xset -q | grep "Num Lock")
+
+capsLock=$(echo "${lockLine}" | awk -F ' ' '{print $4}')
+numLock=$(echo "${lockLine}" | awk -F ' ' '{print $8}')
+scrollLock=$(echo "${lockLine}" | awk -F ' ' '{print $12}')
+
+if [[ "${capsLock}" == "on" ]]; then
+  printCapsLock=" <span foreground=\"#FF9900\"> on</span>"
+fi
+if [[ "${numLock}" == "on" ]]; then
+  printnumLock=" <span foreground=\"#FFFF00\"> on</span>"
+fi
+
+if [[ "${VC_KEYMAP}" ]]; then
+  echo "${VC_KEYMAP}${printCapsLock}${printnumLock}"
+  echo "${VC_KEYMAP}${printCapsLock}${printnumLock}"
+fi
