@@ -71,8 +71,13 @@ bindsym $alt+Shift+k exec keepass2
 bindsym $alt+Shift+i exec icedove
 bindsym $alt+Shift+n exec nautilus
 bindsym $win+x exec i3lock -c 000000
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
 bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshoots/'
+
+# let's start a bunch of utilities (autolock after 10 minutes, nm-applet for the wifi)
+exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
+exec --no-startup-id nm-applet
+# set keyboard to english with Alt Gr as compose key
+exec --no-startup-id setxkbmap us -option compose:ralt
 
 assign [class="Sublime"] $WS2
 assign [class="Firefox"] $WS3
@@ -344,8 +349,8 @@ mode $sysmenu {
 set $keyboardmenu "select keyboard layout:   [F]rench    [U]S"
 bindsym $win+k      mode $keyboardmenu
 mode $keyboardmenu {
-    bindsym f         exec setxkbmap fr, mode "default"
-    bindsym u         exec setxkbmap us, mode "default"
+    bindsym f         exec setxkbmap fr -option compose:ralt, mode "default"
+    bindsym u         exec setxkbmap us -option compose:ralt, mode "default"
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }

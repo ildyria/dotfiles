@@ -38,6 +38,8 @@ Options:
     esac
 done
 
+apt-get update
+
 read upgraded new removed held < <(
 aptitude full-upgrade --simulate --assume-yes |\
     grep -m1 '^[0-9]\+ packages upgraded,' |\
