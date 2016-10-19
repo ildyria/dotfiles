@@ -5,7 +5,7 @@ Theme based on: [i3-gaps neon blue][1] by [emacs\_god][2] with [i3wm-gaps][4] an
 ![Screenshot](/screenshot/scrot.png?raw=true)
 ![Screenshot2](/screenshot/scrot2.png?raw=true)
 
-terminal emulator: [urvt][4].
+terminal emulator: [urxvt][3].
 
 firefox skin available [here][6]
 
