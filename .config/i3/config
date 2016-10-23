@@ -53,9 +53,9 @@ set $ws3  "3:   Firefox "
 set $ws4  "4:   Mail "
 set $ws5  "5:   Coqide "
 set $ws6  "6:   Emacs "
-set $ws7  "7: ♬  Music "
-set $ws8  "8:   Term2 "
-set $ws9  "9:   Term3 "
+set $ws7  "7:   Pdf "
+set $ws8  "8: ♬  Music "
+set $ws9  "9:   Files "
 set $ws0  "0:   Emp "
 
 # we need to start on the right space to prevent the [1] from showing.
@@ -84,6 +84,8 @@ assign [class="Firefox"] $WS3
 assign [class="Icedove"] $WS4
 assign [class="CoqIde"] $WS5
 assign [class="Emacs"] $WS6
+assign [class="Evince"] $WS7
+assign [class="Nautilus"] $WS9
 assign [class="KeePass"] $WS0
 
 # kill focused window
@@ -136,8 +138,8 @@ bindsym $win+space focus mode_toggle
 #bindsym $alt+d focus child
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
@@ -381,3 +383,5 @@ mode $audiomenu {
     bindsym Return        mode "default"
     bindsym Escape        mode "default"
 }
+
+

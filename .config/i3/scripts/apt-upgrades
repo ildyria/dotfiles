@@ -38,7 +38,9 @@ Options:
     esac
 done
 
-apt-get update
+case $BLOCK_BUTTON in
+    3) apt-get update;;
+esac
 
 read upgraded new removed held < <(
 aptitude full-upgrade --simulate --assume-yes |\
