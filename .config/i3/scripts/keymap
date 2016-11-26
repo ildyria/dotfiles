@@ -26,3 +26,16 @@ if [[ "${VC_KEYMAP}" ]]; then
   echo "${VC_KEYMAP}${printCapsLock}${printnumLock}"
   echo "${VC_KEYMAP}${printCapsLock}${printnumLock}"
 fi
+
+switch() {
+	if [[ "${VC_KEYMAP}"  == "us" ]]; then
+		setxkbmap fr -option compose:ralt
+	else
+		setxkbmap us -option compose:ralt
+	fi
+}
+
+case $BLOCK_BUTTON in
+  1) switch ;;
+  3) switch ;;
+esac

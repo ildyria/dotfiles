@@ -12,7 +12,8 @@
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+# font pango:monospace 8
+font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 8
 
 exec --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
 exec --no-startup-id compton
@@ -47,19 +48,19 @@ set $up l
 set $right semicolon
 
 ## Workspaces ##
-set $ws1  "1:   Term1 "
-set $ws2  "2:   Sublime "
-set $ws3  "3:   Firefox "
-set $ws4  "4:   Mail "
-set $ws5  "5:   Coqide "
-set $ws6  "6:   Emacs "
-set $ws7  "7:   Pdf "
-set $ws8  "8: ♬  Music "
-set $ws9  "9:   Files "
-set $ws0  "0:   Emp "
+set $ws1  "1: 1:   "
+set $ws2  "2: 2:    "
+set $ws3  "3: 3:   "
+set $ws4  "4: 4:   "
+set $ws5  "5: 5:   "
+set $ws6  "6: 6:   "
+set $ws7  "7: 7:   "
+set $ws8  "8: 8: ♬  "
+set $ws9  "9: 9:   "
+set $ws0  "10: 0: 🔐 "
 
 # we need to start on the right space to prevent the [1] from showing.
-exec --no-startup-id "i3-msg 'workspace 1:   term1 '"
+exec --no-startup-id "i3-msg 'workspace 1: 1:   '"
 
 # start a terminal
 bindsym $alt+Shift+Return exec i3-sensible-terminal
@@ -67,9 +68,9 @@ bindsym $alt+Shift+Return exec i3-sensible-terminal
 # start a whole bunch of app
 bindsym $alt+Shift+f exec firefox
 bindsym $alt+Shift+s exec subl
-bindsym $alt+Shift+k exec keepass2
+bindsym $alt+Shift+k exec keepass2 ; exec i3-msg 'workspace 10: 0: 🔐 '
 bindsym $alt+Shift+i exec icedove
-bindsym $alt+Shift+n exec nautilus
+bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9: 9:   ' # windows compatibility
 bindsym $win+x exec i3lock -c 000000
 bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshoots/'
 
@@ -84,7 +85,9 @@ assign [class="Firefox"] $WS3
 assign [class="Icedove"] $WS4
 assign [class="CoqIde"] $WS5
 assign [class="Emacs"] $WS6
+assign [class="libreoffice"] $WS6
 assign [class="Evince"] $WS7
+assign [class="Gimp"] $WS8
 assign [class="Nautilus"] $WS9
 assign [class="KeePass"] $WS0
 
@@ -138,13 +141,15 @@ bindsym $win+space focus mode_toggle
 #bindsym $alt+d focus child
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xrandr --output eDP-1 --brightness 0.5 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 ##
 ## resize mode
@@ -156,6 +161,12 @@ mode "resize" {
     bindsym Down resize grow height 1 px or 1 ppt
     bindsym Up resize shrink height 1 px or 1 ppt
     bindsym Right resize grow width 1 px or 1 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Control+Left resize shrink width 5 px or 5 ppt
+    bindsym Control+Down resize grow height 5 px or 5 ppt
+    bindsym Control+Up resize shrink height 5 px or 5 ppt
+    bindsym Control+Right resize grow width 5 px or 5 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -209,7 +220,7 @@ mode "$mode_gaps_outer" {
 smart_gaps on
 
 # class                   border  backgr. text    indicator
-client.focused            #1990B7 #1990B7 #111111 #1990B7
+client.focused            #1060A0 #1060A0 #111111 #1060A0
 client.focused_inactive   #1c1c1c #1c1c1c #5f676a
 client.unfocused          #1c1c1c #1c1c1c #888888 #222222
 client.urgent             #2f343a #009000 #ffffff #009000
@@ -313,19 +324,20 @@ bindsym $alt+Shift+Left move container to workspace prev
 bar {
     #i3bar_command           ~/.config/i3/lemonbar/i3_lemonbar.py
     strip_workspace_numbers yes
-    font                    pango:profont 11
+    # font                    pango:profont 11
+    font pango:DejaVu Sans Mono, Noto Emoji, Terminus Semi-Condensed 9
     status_command          i3blocks -c ~/.config/i3/i3blocks.conf
     workspace_buttons       yes
     tray_output             primary
     separator_symbol        " "
     position                top    colors {
-        background #1b1b1b
+        background #000000
         separator  #ffffff
         statusline #999999
-        focused_workspace  #000000 #1990B7 #1c1c1c
-        active_workspace   #000000 #333333 #999999
-        inactive_workspace #000000 #333333 #999999
-        urgent_workspace   #000000 #ff5151 #1c1c1c
+        focused_workspace  #000000 #000000 #3080C0
+        active_workspace   #000000 #000000 #999999
+        inactive_workspace #000000 #000000 #999999
+        urgent_workspace   #000000 #000000 #ff5151
     }
 }
 
@@ -334,7 +346,7 @@ bar {
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $alt+Shift+r restart
 # Shutdown, Reboot, Lock Screen, and Logout
-#1990B7
+#1060A0
 set $sysmenu "system:   [R]eload i3    [P]oweroff    re[B]oot    [L]ock    logou[T]"
 # bindsym $win+Shift+Return      mode $sysmenu
 bindsym $alt+Shift+F4          mode $sysmenu

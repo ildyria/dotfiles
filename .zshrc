@@ -89,6 +89,7 @@ alias v="vim"
 alias cd..="cd .."
 alias md="mkdir"
 alias gtree='git log --oneline --decorate --all --graph'
+alias fw='sudo /etc/init.d/iptables'
 
 vstmake () { make -C ~/Documents/VST $PWD/$1 ; }
 
@@ -99,3 +100,4 @@ vstmake () { make -C ~/Documents/VST $PWD/$1 ; }
 
 export GPGKEY=ABD0A8E6
 
+export GTK_IM_MODULE=xim

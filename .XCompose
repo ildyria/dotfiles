@@ -322,7 +322,7 @@ include "%L"
 
 # Logic
 
-#<Multi_key> <l> <h> : "←" 
+#<Multi_key> <l> <h> : "←"
 #<Multi_key> <l> <j> : "→"
 #<Multi_key> <l> <m> : "⊧"
 #<Multi_key> <l> <r> : "⊩"

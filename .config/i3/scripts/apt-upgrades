@@ -17,7 +17,8 @@ ALWAYS_PRINT=1
 
 # Colors for when there is/isn't a pending upgrade
 PENDING_COLOR="#FF9900"
-NONPENDING_COLOR="#00FF00"
+NONPENDING_COLOR="#00BB00"
+UPGRADING_COLOR="#00FFFF"
 
 while getopts s:oc:n:Nh opt; do
     case "$opt" in
@@ -31,44 +32,68 @@ while getopts s:oc:n:Nh opt; do
 Options:
 -s\tSpecify a refresh symbol. Default: \"\\\\uf021 \"
 -o\tShow refresh symbol only, but no numbers.
--c\tColor when upgrade is pending. Default:  #00FF00
+-c\tColor when upgrade is pending. Default:  #00BB00
 -n\tColor when no upgrade is pending. Default: #FFFFFF
 -N\tOnly display text if upgrade is pending (supercedes -n)
 -h\tShow this help text\n" && exit 0;;
     esac
 done
 
+printoutput() {
+    read upgraded new removed held < <(
+    aptitude full-upgrade --simulate --assume-yes |\
+        grep -m1 '^[0-9]\+ packages upgraded,' |\
+        tr -cd '0-9 ' |\
+        tr ' ' '\n' |\
+        grep '[0-9]\+' |\
+        xargs echo)
+
+    if [[ $upgraded != 0 ]] || [[ $new != 0 ]] || [[ $removed != 0 ]]; then
+        color="$PENDING_COLOR"
+        if [[ $SYMBOL_ONLY == 1 ]]; then
+            echo -e "$PENDING_SYMBOL"
+            echo -e "$PENDING_SYMBOL"
+        else
+            echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+            echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+        fi
+        echo $color
+    elif [[ $ALWAYS_PRINT == 1 ]]; then
+        color="$NONPENDING_COLOR"
+        if [[ $SYMBOL_ONLY_NONPENDING == 1 ]]; then
+            echo -e "$PENDING_SYMBOL"
+            echo -e "$PENDING_SYMBOL"
+        else
+            echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+            echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
+        fi
+        echo $color
+    fi
+}
+
+update() {
+    echo "updating..."
+    echo "updating..."
+    echo "#FF9900"
+
+    sudo apt-get update -qq
+
+    printoutput
+}
+
+upgrade() {
+    echo "upgrading..."
+    echo "upgrading..."
+    echo "#2070A0"
+
+    sudo apt-get upgrade -qq -y
+
+    printoutput
+}
+
 case $BLOCK_BUTTON in
-    3) apt-get update;;
+  1) update ;;
+  3) upgrade ;;
 esac
 
-read upgraded new removed held < <(
-aptitude full-upgrade --simulate --assume-yes |\
-    grep -m1 '^[0-9]\+ packages upgraded,' |\
-    tr -cd '0-9 ' |\
-    tr ' ' '\n' |\
-    grep '[0-9]\+' |\
-    xargs echo)
-
-if [[ $upgraded != 0 ]] || [[ $new != 0 ]] || [[ $removed != 0 ]] || [[ $held != 0 ]]; then
-    color="$PENDING_COLOR"
-    if [[ $SYMBOL_ONLY == 1 ]]; then
-        echo -e "$PENDING_SYMBOL"
-        echo -e "$PENDING_SYMBOL"
-    else
-        echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
-        echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
-    fi
-    echo $color
-elif [[ $ALWAYS_PRINT == 1 ]]; then
-    color="$NONPENDING_COLOR"
-    if [[ $SYMBOL_ONLY_NONPENDING == 1 ]]; then
-        echo -e "$PENDING_SYMBOL"
-        echo -e "$PENDING_SYMBOL"
-    else
-        echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
-        echo -e "$PENDING_SYMBOL$upgraded/$new/$removed/$held"
-    fi
-    echo $color
-fi
-
+printoutput

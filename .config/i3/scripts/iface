@@ -35,7 +35,7 @@ fi
 if [[ "$(cat /sys/class/net/$IF/operstate)" = 'down' ]]; then
   echo down # full text
   echo down # short text
-  echo \#FF0000 # color
+  echo \#CC0000 # color
   exit
 fi
 
@@ -59,4 +59,4 @@ esac
 
 echo "$(/sbin/iw dev wlp2s0 link | grep SSID | cut -d " " -f 2-) : $IPADDR" # full text
 echo "$IPADDR" # short text
-echo \#1990B7 # color
+echo \#2070A0 # color
