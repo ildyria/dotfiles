@@ -1,0 +1,52 @@
+[include]
+    path = ~/.gitconfig_local
+[push]
+	default = matching
+[log]
+	date = short
+[format]
+	pretty = format:%C(yellow)%h %>(10)%Cred%ad %<(13)%C(cyan)%an %Cgreen%d %Creset%s
+[diff]
+	mnemonicprefix = true
+[grep]
+    fullname = true
+    linenumber = true
+[color]
+    ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+[color "branch"]
+    current = cyan bold
+    local = green bold
+    remote = red bold
+    upstream = red bold
+    plain = yellow reverse
+[color "diff"]
+    plain = normal
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    commit = yellow
+    whitespace = red reverse
+[color "status"]
+    header = normal
+    added = green
+    updated = yellow
+    changed = magenta
+    untracked = red
+    branch = cyan bold
+    nobranch = red reverse
+[color "grep"]
+    filename = yellow bold
+    linenumber = magenta bold
+    match = green reverse bold
+    separator = red bold
+    selected = white bold
+    context = black
+    function = red
+[alias]
+	st = status -s -b
+	undo = checkout --

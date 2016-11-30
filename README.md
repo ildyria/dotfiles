@@ -11,6 +11,14 @@ terminal emulator: [urxvt][3].
 
 firefox skin available [here][6]
 
+to install :
+```
+cd dotfiles
+./install.py -i
+```
+
+For help: `./install -h`
+
 [1]: https://www.reddit.com/r/unixporn/comments/56g2ov/i3gaps_neon_blue/
 [2]: https://www.reddit.com/user/emacs_god
 [3]: http://software.schmorp.de/pkg/rxvt-unicode.html
