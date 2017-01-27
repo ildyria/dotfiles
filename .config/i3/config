@@ -149,6 +149,11 @@ bindsym $win+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $win+space focus mode_toggle
 
+bindsym $win+Tab focus output left
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+bindsym $win+Shift+Tab move workspace to output left
+
 # focus the parent container
 # bindsym $alt+a focus parent
 
@@ -411,4 +416,18 @@ mode $audiomenu {
     bindsym Escape        mode "default"
 }
 
-
+set $displayScreen "display:   [V]GA    [H]DMI    [D]isplayPort    [N]ormal"
+# bindsym $win+Shift+Return      mode $sysmenu
+bindsym $alt+Shift+F5          mode $displayScreen
+mode $displayScreen {
+    # bindsym p         exec /sbin/shutdown -P now
+    # bindsym b         exec /sbin/shutdown -r now
+    # bindsym l         exec i3lock -c 000000, mode "default"
+    # bindsym r         restart, mode "default"
+    bindsym v         exec --no-startup-id xrandr --output eDP-1 --auto --output VGA-1 --auto --right-of eDP-1, mode "default"
+    bindsym h         exec --no-startup-id xrandr --output eDP-1 --auto --output HDMI-1 --auto --right-of eDP-1, mode "default"
+    bindsym d         exec --no-startup-id xrandr --output eDP-1 --auto --output DP-1 --auto --right-of eDP-1, mode "default"
+    bindsym n         exec --no-startup-id xrandr --output eDP-1 --auto --output DP-1 --off --output HDMI-1 --off --output VGA-1 --off, mode "default"
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}

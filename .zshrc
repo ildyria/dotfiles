@@ -52,7 +52,7 @@ ZSH_THEME="lambda-mod"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,6 +90,11 @@ alias cd..="cd .."
 alias md="mkdir"
 alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
+alias startvpn='sudo openvpn openvpn-science.ovpn'
+# alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
+
+# sudo apt-get install cmatrix ;)
+alias cm='cmatrix -abC blue -u 3'
 
 vstmake () { make -C ~/Documents/VST $PWD/$1 ; }
 
@@ -97,6 +102,8 @@ vstmake () { make -C ~/Documents/VST $PWD/$1 ; }
 . /home/biv/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 #GPG
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
 
 export GPGKEY=ABD0A8E6
 
