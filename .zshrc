@@ -105,6 +105,7 @@ vstmake () { make -C ~/Documents/VST $PWD/$1 ; }
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
 
+alias svn=~/.dotfiles/bin/svn-color.py
 export GPGKEY=ABD0A8E6
 
 export GTK_IM_MODULE=xim
