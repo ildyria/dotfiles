@@ -107,7 +107,6 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
 
 alias svn=~/.dotfiles/bin/svn-color.py
-# alias st="sudo /home/biv/Documents/testJost/stlink/build/Release/st-flash"
 export GPGKEY=ABD0A8E6
 
 export GTK_IM_MODULE=xim
