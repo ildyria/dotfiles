@@ -91,6 +91,7 @@ alias md="mkdir"
 alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
 alias startvpn='sudo openvpn openvpn-science.ovpn'
+# alias st-flash='sudo /home/biv/Documents/testJost/stlink/build/Release/st-flash'
 # alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
 
 # sudo apt-get install cmatrix ;)
@@ -106,6 +107,7 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
 
 alias svn=~/.dotfiles/bin/svn-color.py
+# alias st="sudo /home/biv/Documents/testJost/stlink/build/Release/st-flash"
 export GPGKEY=ABD0A8E6
 
 export GTK_IM_MODULE=xim

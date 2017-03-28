@@ -4,6 +4,7 @@
 	default = matching
 [log]
 	date = short
+    date = format:%Y-%m-%d %H:%M:%S
 [format]
 	pretty = format:%C(yellow)%h %>(10)%Cred%ad %<(13)%C(cyan)%an %Cgreen%d %Creset%s
 [diff]
@@ -50,3 +51,4 @@
 [alias]
 	st = status -s -b
 	undo = checkout --
+    up = pull

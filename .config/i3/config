@@ -13,7 +13,9 @@
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
-font pango: DejaVu Sans Mono, Terminus Bold Semi-Condensed 8
+font pango: DejaVu Sans Mono for Powerline, Terminus Bold Semi-Condensed 8
+
+# font pango:System San Franciso Display 12
 
 exec --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
 exec --no-startup-id compton
@@ -48,6 +50,7 @@ set $up l
 set $right semicolon
 
 ## Workspaces ##
+
 set $ws1  "1: 1:   "
 set $ws2  "2: 2:    "
 set $ws3  "3: 3:   "
@@ -84,7 +87,7 @@ assign [class="Sublime"] $WS2
 
 assign [class="Firefox"] $WS3
 
-assign [class="Icedove"] $WS4
+assign [class="Thunderbird"] $WS4
 
 assign [class="CoqIde"] $WS5
 assign [class="Emacs"] $WS5
@@ -345,7 +348,10 @@ bar {
     #i3bar_command           ~/.config/i3/lemonbar/i3_lemonbar.py
     strip_workspace_numbers yes
     # font                    pango:profont 11
-    font pango: DejaVu Sans Mono, Noto Emoji, Terminus Semi-Condensed 9
+    # font pango:System San Franciso Display 12
+
+    # font pango: monospace 8
+    font pango: DejaVu Sans Mono, Terminus Semi-Condensed 9
     #, DejaVu Sans Mono, Noto Emoji,  #Terminess Powerline  #DejaVu Sans Mono, Noto Emoji, #Terminus Semi-Condensed 9
     status_command          i3blocks -c ~/.config/i3/i3blocks.conf
     workspace_buttons       yes
