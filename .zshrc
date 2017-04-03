@@ -91,6 +91,7 @@ alias md="mkdir"
 alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
 alias startvpn='sudo openvpn openvpn-science.ovpn'
+alias starwork='ssh sandor'
 # alias st-flash='sudo /home/biv/Documents/testJost/stlink/build/Release/st-flash'
 # alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
 
