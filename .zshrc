@@ -92,6 +92,18 @@ alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
 alias startvpn='sudo openvpn openvpn-science.ovpn'
 alias startwork='ssh sandor'
+alias rzsh='source ~/.zshrc'
+
+alias -s py='python3'
+alias -s c='subl'
+alias -s h='subl'
+alias -s cpp='subl'
+alias -s txt='subl'
+alias -s md='subl'
+alias -s xml='subl'
+alias -s v='coqide'
+alias -s pdf='evince'
+
 # alias st-flash='sudo /home/biv/Documents/testJost/stlink/build/Release/st-flash'
 # alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
 
