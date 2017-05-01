@@ -51,19 +51,34 @@ set $right semicolon
 
 ## Workspaces ##
 
-set $ws1  "1: 1:   "
-set $ws2  "2: 2:    "
-set $ws3  "3: 3:   "
-set $ws4  "4: 4:   "
-set $ws5  "5: 5:   "
-set $ws6  "6: 6: #  "
-set $ws7  "7: 7:   "
-set $ws8  "8: 8: ♬  "
-set $ws9  "9: 9:   "
-set $ws0  "10: 0: 🔐 "
+set $ws1  "1:    "
+set $ws2  "2:     "
+set $ws3  "3:    "
+set $ws4  "4:    "
+set $ws5  "5:    "
+set $ws6  "6:  #  "
+set $ws7  "7:    "
+set $ws8  "8:  ♬  "
+set $ws9  "9:    "
+set $ws0  "10:  🔐 "
+set $wsa  "11:   "
+set $wsb  "12:   "
+# set $ws1  "1: 1:   "
+# set $ws2  "2: 2:    "
+# set $ws3  "3: 3:   "
+# set $ws4  "4: 4:   "
+# set $ws5  "5: 5:   "
+# set $ws6  "6: 6: #  "
+# set $ws7  "7: 7:   "
+# set $ws8  "8: 8: ♬  "
+# set $ws9  "9: 9:   "
+# set $ws0  "10: 0: 🔐 "
+# set $wsa  "11: -:  "
+# set $wsb  "12: =:  "
 
 # we need to start on the right space to prevent the [1] from showing.
-exec --no-startup-id "i3-msg 'workspace 1: 1:   '"
+# exec --no-startup-id "i3-msg 'workspace 1: 1:   '"
+exec --no-startup-id "i3-msg 'workspace 1:    '"
 
 # start a terminal
 bindsym $alt+Shift+Return exec i3-sensible-terminal
@@ -71,9 +86,9 @@ bindsym $alt+Shift+Return exec i3-sensible-terminal
 # start a whole bunch of app
 bindsym $alt+Shift+f exec firefox
 bindsym $alt+Shift+s exec subl
-bindsym $alt+Shift+k exec keepass2 ; exec i3-msg 'workspace 10: 0: 🔐 '
+bindsym $alt+Shift+k exec keepass2 ; exec i3-msg 'workspace 10:  🔐 '
 bindsym $alt+Shift+i exec icedove
-bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9: 9:   ' # windows compatibility
+bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9:    ' # windows compatibility
 bindsym $win+x exec i3lock -c 000000
 bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshoots/'
 
@@ -104,6 +119,8 @@ assign [class="Filezilla"] $WS9
 assign [class="Nautilus"] $WS9
 
 assign [class="KeePass"] $WS0
+
+assign [instance="skype"] $WSA
 
 # kill focused window
 bindsym $alt+F4 kill
@@ -171,6 +188,12 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xrandr --output eDP-1 --brightness 0.5 # decrease screen brightness
+
+# Display brightness shortcuts
+# It does not work on Arch Linux / Kernel 4.1.8 out of box
+# bindsym XF86MonBrightnessUp exec "file=/sys/class/backlight/intel_backlight/brightness; val=$(cat $file); if [ $val -lt 4302 ]; then echo $(expr $val + 100) | sudo tee $file; fi"
+# bindsym XF86MonBrightnessDown exec "file=/sys/class/backlight/intel_backlight/brightness; val=$(cat $file); if [ $val -gt 0 ]; then echo $(expr $val - 100) | sudo tee $file; fi"
+
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
@@ -329,15 +352,32 @@ bindsym $alt+Shift+9 move container to workspace $WS9
 bindcode $alt+81 workspace $WS9
 bindcode $alt+Shift+81 move container to workspace $WS9
 
+
+##  ##
+workspace $WSA output PRIMARY_OUTPUT
+bindsym $alt+minus workspace $WSA
+bindsym $alt+Shift+minus move container to workspace $WSA
+bindcode $alt+82 workspace $WSA
+bindcode $alt+Shift+82 move container to workspace $WSA
+
+
+##  ##
+workspace $WSB output PRIMARY_OUTPUT
+bindsym $alt+equal workspace $WSB
+bindsym $alt+Shift+equal move container to workspace $WSB
+bindcode $alt+86 workspace $WSB
+bindcode $alt+Shift+86 move container to workspace $WSB
+
+
 ## Navigation of workspaces (go to, move to) ##
-bindcode $alt+86 workspace next
+# bindcode $alt+86 workspace next
 bindsym $alt+Right workspace next
-bindcode $alt+Shift+86 move container to workspace next
+# bindcode $alt+Shift+86 move container to workspace next
 bindsym $alt+Shift+Right move container to workspace next
 
-bindcode $alt+82 workspace prev
+# bindcode $alt+82 workspace prev
 bindsym $alt+Left workspace prev
-bindcode $alt+Shift+82 move container to workspace prev
+# bindcode $alt+Shift+82 move container to workspace prev
 bindsym $alt+Shift+Left move container to workspace prev
 
 
