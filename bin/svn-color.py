@@ -81,6 +81,7 @@ if __name__ == "__main__":
     cancelled = False
     for line in output.stdout:
         line = line.expandtabs(tabsize)
+        line = line.decode('utf-8')
         if(sys.argv[1] in colorizedSubcommands):
             line = colorize(line, sys.argv[1])
         try:
