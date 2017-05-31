@@ -52,7 +52,7 @@ ZSH_THEME="lambda-mod"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract)
+plugins=(git extract cp zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,8 +90,12 @@ alias cd..="cd .."
 alias md="mkdir"
 alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
+
 alias startvpn='sudo openvpn openvpn-science.ovpn'
 alias startwork='ssh sandor'
+alias skype='skypeforlinux'
+alias skype2='skypeforlinux --secondary'
+
 alias rzsh='source ~/.zshrc'
 
 alias -s py='python3'
