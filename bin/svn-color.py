@@ -28,6 +28,7 @@ tabsize = 4
 
 colorizedSubcommands = (
 	'status',
+    'st',
 	'add',
 	'remove',
 	'diff',
