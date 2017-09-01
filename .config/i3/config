@@ -23,8 +23,8 @@ exec --no-startup-id compton
 ## Size of border ##
 new_window pixel 2
 
-gaps inner 10
-gaps outer 0
+#gaps inner 10
+#gaps outer 0
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -226,44 +226,44 @@ mode "resize" {
 }
 
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $alt+Shift+g mode "$mode_gaps"
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#bindsym $alt+Shift+g mode "$mode_gaps"
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+#mode "$mode_gaps" {
+#        bindsym o      mode "$mode_gaps_outer"
+#        bindsym i      mode "$mode_gaps_inner"
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
 
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+#mode "$mode_gaps_inner" {
+#        bindsym plus  gaps inner current plus 5
+#        bindsym minus gaps inner current minus 5
+#        bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+#        bindsym Shift+plus  gaps inner all plus 5
+#        bindsym Shift+minus gaps inner all minus 5
+#        bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_outer" {
+#        bindsym plus  gaps outer current plus 5
+#        bindsym minus gaps outer current minus 5
+#        bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+#        bindsym Shift+plus  gaps outer all plus 5
+#        bindsym Shift+minus gaps outer all minus 5
+#        bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
 
-smart_gaps on
+#smart_gaps on
 
 # class                   border  backgr. text    indicator
 client.focused            #1060A0 #1060A0 #111111 #1060A0
