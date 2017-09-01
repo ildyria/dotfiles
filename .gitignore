@@ -26,3 +26,8 @@ __pycache__
 Session.vim
 .netrwhist
 *~
+
+### Ranger ###
+.config/ranger/history
+.config/ranger/bookmarks
+.config/ranger/tagged
