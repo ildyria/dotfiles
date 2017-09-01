@@ -1,0 +1,13 @@
+mkdir Gliding
+tar -cf Gliding.tar Gliding
+rename Ticket.pfg
+rename Ticket.pdf
+rename Travel Form.pdf
+rename W-8BEN-rev-2006.pdf
+rename W-8BEN-rev-2017.pdf
+
+linemode sizemtime
+find 
+find P
+delete 
+delete
