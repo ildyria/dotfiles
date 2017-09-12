@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/biv/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -87,7 +87,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias v="vim"
-alias cd..="cd .."
 alias md="mkdir"
 alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
@@ -112,17 +111,14 @@ alias -s pdf='evince'
 # alias st-flash='sudo /home/biv/Documents/testJost/stlink/build/Release/st-flash'
 # alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
 
-# sudo apt-get install cmatrix ;)
-alias cm='cmatrix -abC blue -u 3'
-
-vstmake () { make -C ~/Documents/VST $PWD/$1 ; }
+vstmake () { rm $1 ; make -C ~/Documents/VST $PWD/$1 ; }
 
 # OPAM configuration
 . /home/biv/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 #GPG
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
+export PATH=~/bin:$PATH:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+#export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
 
 alias svn=~/.dotfiles/bin/svn-color.py
 export GPGKEY=ABD0A8E6
