@@ -85,7 +85,7 @@ bindsym $alt+Shift+Return exec i3-sensible-terminal
 
 # start a whole bunch of app
 bindsym $alt+Shift+f exec firefox
-bindsym $alt+Shift+s exec subl
+bindsym $alt+Shift+s exec atom
 bindsym $alt+Shift+k exec keepass2 ; exec i3-msg 'workspace 10:  🔐 '
 bindsym $alt+Shift+i exec icedove
 bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9:    ' # windows compatibility
@@ -99,6 +99,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap us -option compose:ralt
 
 assign [class="Sublime"] $WS2
+assign [class="Atom"] $WS2
 
 assign [class="Firefox"] $WS3
 
