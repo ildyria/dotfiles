@@ -51,18 +51,30 @@ set $right semicolon
 
 ## Workspaces ##
 
-set $ws1  "1:    "
-set $ws2  "2:     "
-set $ws3  "3:    "
-set $ws4  "4:    "
-set $ws5  "5:    "
-set $ws6  "6:  #  "
-set $ws7  "7:    "
-set $ws8  "8:  ♬  "
-set $ws9  "9:    "
+set $ws1  "1:  1  "
+set $ws2  "2:  2   "
+set $ws3  "3:  3  "
+set $ws4  "4:  4  "
+set $ws5  "5:  5  "
+set $ws6  "6:  6  "
+set $ws7  "7:  7  "
+set $ws8  "8:  8  "
+set $ws9  "9:  9  "
 set $ws0  "10:  🔐 "
-set $wsa  "11:   "
-set $wsb  "12:   "
+set $wsa  "11:  - "
+set $wsb  "12:  + "
+# set $ws1  "1:    "
+# set $ws2  "2:     "
+# set $ws3  "3:    "
+# set $ws4  "4:    "
+# set $ws5  "5:    "
+# set $ws6  "6:  #  "
+# set $ws7  "7:    "
+# set $ws8  "8:  ♬  "
+# set $ws9  "9:    "
+# set $ws0  "10:  🔐 "
+# set $wsa  "11:   "
+# set $wsb  "12:   "
 # set $ws1  "1: 1:   "
 # set $ws2  "2: 2:    "
 # set $ws3  "3: 3:   "
@@ -78,7 +90,8 @@ set $wsb  "12:   "
 
 # we need to start on the right space to prevent the [1] from showing.
 # exec --no-startup-id "i3-msg 'workspace 1: 1:   '"
-exec --no-startup-id "i3-msg 'workspace 1:    '"
+# exec --no-startup-id "i3-msg 'workspace 1:    '"
+exec --no-startup-id "i3-msg 'workspace 1:  1  '"
 
 # start a terminal
 bindsym $alt+Shift+Return exec i3-sensible-terminal
@@ -86,9 +99,11 @@ bindsym $alt+Shift+Return exec i3-sensible-terminal
 # start a whole bunch of app
 bindsym $alt+Shift+f exec firefox
 bindsym $alt+Shift+s exec atom
+bindsym $alt+Shift+e exec emacs
 bindsym $alt+Shift+k exec keepass2 ; exec i3-msg 'workspace 10:  🔐 '
-bindsym $alt+Shift+i exec icedove
-bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9:    ' # windows compatibility
+bindsym $alt+Shift+i exec thunderbird
+# bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9:    ' # windows compatibility
+bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9:  9  ' # windows compatibility
 bindsym $win+x exec i3lock -c 000000
 bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshoots/'
 
@@ -129,7 +144,7 @@ bindsym $alt+F4 kill
 exec --no-startup-id slack
 exec --no-startup-id sublime
 exec --no-startup-id firefox
-exec --no-startup-id icedove
+exec --no-startup-id thunderbird
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -311,7 +326,7 @@ bindsym $alt+Shift+3 move container to workspace $WS3
 bindcode $alt+89 workspace $WS3
 bindcode $alt+Shift+89 move container to workspace $WS3
 
-## Icedove, IRC, TOX, etc... ##
+## Thunderbird, IRC, TOX, etc... ##
 workspace $WS4 output PRIMARY_OUTPUT
 bindsym $alt+4 workspace $WS4
 bindsym $alt+Shift+4 move container to workspace $WS4
