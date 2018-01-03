@@ -107,6 +107,7 @@ alias md="mkdir"
 alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
 
+alias settings='gnome-control-center'
 alias startvpn='sudo openvpn openvpn-science.ovpn'
 alias startwork='ssh sandor'
 alias skype='skypeforlinux'
@@ -115,28 +116,24 @@ alias skype2='skypeforlinux --secondary'
 alias rzsh='source ~/.zshrc'
 
 alias -s py='python3'
-alias -s c='subl'
-alias -s h='subl'
-alias -s cpp='subl'
-alias -s txt='subl'
-alias -s md='subl'
-alias -s xml='subl'
+alias -s c='atom'
+alias -s h='atom'
+alias -s cpp='atom'
+alias -s txt='atom'
+alias -s md='atom'
+alias -s xml='atom'
 alias -s v='coqide'
 alias -s pdf='evince'
 
-# alias st-flash='sudo /home/biv/Documents/testJost/stlink/build/Release/st-flash'
 # alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
 
 vstmake () { rm $1 ; make -C ~/Documents/VST $PWD/$1 ; }
 
-#GPG
 export PATH=~/bin:$PATH:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 #export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
 export PATH=~/Documents/fstar/bin:$PATH
 
 alias svn=~/.dotfiles/bin/svn-color.py
-export GPGKEY=ABD0A8E6
-
 export GTK_IM_MODULE=xim
 
 # OPAM configuration

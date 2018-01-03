@@ -98,6 +98,7 @@ bindsym $alt+Shift+Return exec i3-sensible-terminal
 
 # start a whole bunch of app
 bindsym $alt+Shift+f exec firefox
+bindsym $alt+Shift+d exec discord-ptb
 bindsym $alt+Shift+s exec atom
 bindsym $alt+Shift+e exec emacs
 bindsym $alt+Shift+k exec keepass2 ; exec i3-msg 'workspace 10:  🔐 '
@@ -113,7 +114,6 @@ exec --no-startup-id nm-applet
 # set keyboard to english with Alt Gr as compose key
 exec --no-startup-id setxkbmap us -option compose:ralt
 
-assign [class="Sublime"] $WS2
 assign [class="Atom"] $WS2
 
 assign [class="Firefox"] $WS3
@@ -125,11 +125,13 @@ assign [class="Emacs"] $WS5
 assign [class="libreoffice"] $WS5
 
 assign [class="Slack"] $WS6
+assign [class="discord"] $WS6
 
 assign [class="Evince"] $WS7
 
 assign [class="Gimp"] $WS8
-assign [class="Vlc"] $WS8
+assign [class="vlc"] $WS8
+assign [title="WeeChat 1.6"] $WS8
 
 assign [class="Filezilla"] $WS9
 assign [class="Nautilus"] $WS9
@@ -137,12 +139,11 @@ assign [class="Nautilus"] $WS9
 assign [class="KeePass"] $WS0
 
 assign [instance="skype"] $WSA
+assign [class="Chromium" title="Signal"] $WSA
 
 # kill focused window
 bindsym $alt+F4 kill
 
-exec --no-startup-id slack
-exec --no-startup-id sublime
 exec --no-startup-id firefox
 exec --no-startup-id thunderbird
 
@@ -197,9 +198,9 @@ bindsym $win+Shift+Tab move workspace to output left
 #bindsym $alt+d focus child
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +2% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -2% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ -- toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1 # increase screen brightness
@@ -400,29 +401,30 @@ bindsym $alt+Shift+Left move container to workspace prev
 ##
 ## Bar
 ##
-bar {
-    #i3bar_command           ~/.config/i3/lemonbar/i3_lemonbar.py
-    strip_workspace_numbers yes
-    # font                    pango:profont 11
-    # font pango:System San Franciso Display 12
-
-    # font pango: monospace 8
-    font pango: DejaVu Sans Mono, Terminus Semi-Condensed 9
-    #, DejaVu Sans Mono, Noto Emoji,  #Terminess Powerline  #DejaVu Sans Mono, Noto Emoji, #Terminus Semi-Condensed 9
-    status_command          i3blocks -c ~/.config/i3/i3blocks.conf
-    workspace_buttons       yes
-    tray_output             primary
-    separator_symbol        " "
-    position                top    colors {
-        background #000000
-        separator  #ffffff
-        statusline #999999
-        focused_workspace  #000000 #000000 #3080C0
-        active_workspace   #000000 #000000 #999999
-        inactive_workspace #000000 #000000 #999999
-        urgent_workspace   #000000 #000000 #ff5151
-    }
-}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# bar {
+#     #i3bar_command           ~/.config/i3/lemonbar/i3_lemonbar.py
+#     strip_workspace_numbers yes
+#     # font                    pango:profont 11
+#     # font pango:System San Franciso Display 12
+#
+#     # font pango: monospace 8
+#     font pango: DejaVu Sans Mono, Terminus Semi-Condensed 9
+#     #, DejaVu Sans Mono, Noto Emoji,  #Terminess Powerline  #DejaVu Sans Mono, Noto Emoji, #Terminus Semi-Condensed 9
+#     status_command          i3blocks -c ~/.config/i3/i3blocks.conf
+#     workspace_buttons       yes
+#     tray_output             primary
+#     separator_symbol        " "
+#     position                top    colors {
+#         background #000000
+#         separator  #ffffff
+#         statusline #999999
+#         focused_workspace  #000000 #000000 #3080C0
+#         active_workspace   #000000 #000000 #999999
+#         inactive_workspace #000000 #000000 #999999
+#         urgent_workspace   #000000 #000000 #ff5151
+#     }
+# }
 
 
 

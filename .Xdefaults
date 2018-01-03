@@ -52,3 +52,6 @@ URxvt.colorBD: rgb:ff/ff/ff
 URxvt.transparent: true
 URxvt.shading:20
 URxvt.fading:40
+
+xset +fp /home/biv/.fonts
+xset fp rehash
