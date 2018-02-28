@@ -92,6 +92,7 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+find .ssh/ -mindepth 1 -maxdepth 1 -name 'id_ed25519*' ! -name '*.pub' -print0 | xargs -0 ssh-add 2>/dev/null
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

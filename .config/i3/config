@@ -98,7 +98,7 @@ bindsym $alt+Shift+Return exec i3-sensible-terminal
 
 # start a whole bunch of app
 bindsym $alt+Shift+f exec firefox
-bindsym $alt+Shift+d exec discord-ptb
+bindsym $alt+Shift+d exec discord
 bindsym $alt+Shift+s exec atom
 bindsym $alt+Shift+e exec emacs
 bindsym $alt+Shift+k exec keepass2 ; exec i3-msg 'workspace 10:  🔐 '
@@ -106,7 +106,7 @@ bindsym $alt+Shift+i exec thunderbird
 # bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9:    ' # windows compatibility
 bindsym $win+e exec nautilus ; exec i3-msg 'workspace 9:  9  ' # windows compatibility
 bindsym $win+x exec i3lock -c 000000
-bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshoots/'
+bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Screenshots/'
 
 # let's start a bunch of utilities (autolock after 10 minutes, nm-applet for the wifi)
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
@@ -125,7 +125,6 @@ assign [class="Emacs"] $WS5
 assign [class="libreoffice"] $WS5
 
 assign [class="Slack"] $WS6
-assign [class="discord"] $WS6
 
 assign [class="Evince"] $WS7
 
@@ -137,6 +136,7 @@ assign [class="Filezilla"] $WS9
 assign [class="Nautilus"] $WS9
 
 assign [class="KeePass"] $WS0
+assign [class="discord"] $WS0
 
 assign [instance="skype"] $WSA
 assign [class="Chromium" title="Signal"] $WSA
