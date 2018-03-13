@@ -110,7 +110,7 @@ bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Scr
 
 # let's start a bunch of utilities (autolock after 10 minutes, nm-applet for the wifi)
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 # set keyboard to english with Alt Gr as compose key
 exec --no-startup-id setxkbmap us -option compose:ralt
 
@@ -198,13 +198,13 @@ bindsym $win+Shift+Tab move workspace to output left
 #bindsym $alt+d focus child
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -2% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ -- toggle # mute sound
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- +2% #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -- -2% #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ -- toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xrandr --output eDP-1 --brightness 0.5 # decrease screen brightness
+# bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xrandr --output eDP-1 --brightness 0.5 # decrease screen brightness
 
 # Display brightness shortcuts
 # It does not work on Arch Linux / Kernel 4.1.8 out of box
@@ -496,3 +496,12 @@ mode $displayScreen {
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
+
+exec --no-startup-id dbus-send \
+    --session \
+    --print-reply=literal \
+    --dest=org.gnome.SessionManager \
+    "/org/gnome/SessionManager" \
+    org.gnome.SessionManager.RegisterClient \
+    "string:i3" \
+    "string:$DESKTOP_AUTOSTART_ID"

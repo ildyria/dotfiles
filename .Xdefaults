@@ -6,8 +6,8 @@ URxvt.foreground: gray
 !! Font prefferenes
 !! URxvt.font: xft:DejaVu Sans Mono for Powerline:pixelsize=16
 !! URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:pixelsize=16:weight=bold
-URxvt.font: xft:Monospace:pixelsize=16
-URxvt.boldFont: xft:Monospace:pixelsize=16:weight=bold
+URxvt.font: xft:Monospace:pixelsize=14
+URxvt.boldFont: xft:Monospace:pixelsize=14:weight=bold
 URxvt.letterSpace: -1
 !! Larger history limit
 URxvt.saveLines: 1000000
