@@ -153,12 +153,14 @@ alias -s pdf='evince'
 
 vstmake () { rm $1 ; make -C ~/Documents/VST $PWD/$1 ; }
 
-export PATH=~/bin:$PATH:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
-#export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
-export PATH=~/Documents/fstar/bin:$PATH
+# export PATH=~/bin:$PATH:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+# export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
+# export PATH=~/Documents/fstar/bin:$PATH
 
-alias svn=~/.dotfiles/bin/svn-color.py
-export GTK_IM_MODULE=xim
+# alias svn=~/.dotfiles/bin/svn-color.py
+# export GTK_IM_MODULE=xim
 
 # OPAM configuration
-. /home/biv/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# . /home/biv/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+unalias gm

@@ -52,3 +52,5 @@
 	st = status -s -b
 	undo = checkout --
     up = pull
+[core]
+	editor = atom --wait

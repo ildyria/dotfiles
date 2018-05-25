@@ -112,7 +112,7 @@ bindsym $win+p exec scrot '%Y-%m-%d_$wx$h_%H:%M:%S.png' -e 'mv $f ~/Pictures/Scr
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
 # exec --no-startup-id nm-applet
 # set keyboard to english with Alt Gr as compose key
-exec --no-startup-id setxkbmap us -option compose:ralt
+# exec --no-startup-id setxkbmap us -option compose:ralt
 
 assign [class="Atom"] $WS2
 
