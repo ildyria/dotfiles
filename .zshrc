@@ -136,6 +136,8 @@ alias startvpn='sudo openvpn openvpn-science.ovpn'
 alias startwork='ssh sandor'
 alias skype='skypeforlinux'
 alias skype2='skypeforlinux --secondary'
+alias pycharm='snap run pycharm-community'
+alias phpstorm='snap run phpstorm'
 
 alias rzsh='source ~/.zshrc'
 

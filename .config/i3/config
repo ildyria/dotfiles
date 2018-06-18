@@ -97,7 +97,8 @@ exec --no-startup-id "i3-msg 'workspace 1:  1  '"
 bindsym $alt+Shift+Return exec i3-sensible-terminal
 
 # start a whole bunch of app
-bindsym $alt+Shift+f exec firefox
+#bindsym $alt+Shift+f exec firefox
+bindsym $alt+Shift+f exec google-chrome
 bindsym $alt+Shift+d exec discord
 bindsym $alt+Shift+s exec atom
 bindsym $alt+Shift+e exec emacs
@@ -117,6 +118,7 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
 assign [class="Atom"] $WS2
 
 assign [class="Firefox"] $WS3
+assign [class="Chrome"] $WS3
 
 assign [class="Thunderbird"] $WS4
 
@@ -144,7 +146,8 @@ assign [class="Chromium" title="Signal"] $WSA
 # kill focused window
 bindsym $alt+F4 kill
 
-exec --no-startup-id firefox
+# exec --no-startup-id firefox
+exec --no-startup-id google-chrome
 exec --no-startup-id thunderbird
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -497,11 +500,18 @@ mode $displayScreen {
     bindsym Escape    mode "default"
 }
 
-exec --no-startup-id dbus-send \
-    --session \
-    --print-reply=literal \
-    --dest=org.gnome.SessionManager \
-    "/org/gnome/SessionManager" \
-    org.gnome.SessionManager.RegisterClient \
-    "string:i3" \
-    "string:$DESKTOP_AUTOSTART_ID"
+
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+
+exec_always --no-startup-id gnome-power-manager
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+#exec --no-startup-id dbus-send \
+#    --session \
+#    --print-reply=literal \
+#    --dest=org.gnome.SessionManager \
+#    "/org/gnome/SessionManager" \
+#    org.gnome.SessionManager.RegisterClient \
+#    "string:i3" \
+#    "string:$DESKTOP_AUTOSTART_ID"
