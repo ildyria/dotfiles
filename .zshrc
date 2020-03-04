@@ -1,7 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=/opt/riscv/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+#Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -126,18 +127,19 @@ find ~/.ssh/ -mindepth 1 -maxdepth 1 -name 'id_ed25519*' ! -name '*.pub' -print0
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias v="vim"
 alias md="mkdir"
+alias m="make"
+alias makemake="make"
 alias gtree='git log --oneline --decorate --all --graph'
 alias fw='sudo /etc/init.d/iptables'
 
 alias settings='gnome-control-center'
 alias startvpn='sudo openvpn openvpn-science.ovpn'
-alias startwork='ssh sandor'
 alias skype='skypeforlinux'
 alias skype2='skypeforlinux --secondary'
-alias pycharm='snap run pycharm-community'
+alias pycharm='snap run pycharm'
 alias phpstorm='snap run phpstorm'
+alias tcolors='~/bin/colors.sh'
 
 alias rzsh='source ~/.zshrc'
 
@@ -153,8 +155,6 @@ alias -s pdf='evince'
 
 # alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
 
-vstmake () { rm $1 ; make -C ~/Documents/VST $PWD/$1 ; }
-
 # export PATH=~/bin:$PATH:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 # export PATH=$PATH:/home/biv/Documents/Personnal/eclipse/bin/x86_64_linux
 # export PATH=~/Documents/fstar/bin:$PATH
@@ -162,7 +162,9 @@ vstmake () { rm $1 ; make -C ~/Documents/VST $PWD/$1 ; }
 # alias svn=~/.dotfiles/bin/svn-color.py
 # export GTK_IM_MODULE=xim
 
+export RISCV=/opt/riscv/
+
 # OPAM configuration
-# . /home/biv/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+. /home/biv/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 unalias gm
