@@ -116,11 +116,12 @@ exec --no-startup-id xautolock -time 10 -locker 'i3lock -d -c 000000'
 # exec --no-startup-id setxkbmap us -option compose:ralt
 
 assign [class="Atom"] $WS2
+assign [class="Code"] $WS2
 
 assign [class="Firefox"] $WS3
-assign [class="Chrome"] $WS3
+assign [class="Google-chrome"] $WS3
 
-assign [class="Thunderbird"] $WS4
+assign [class="thunderbird"] $WS4
 
 assign [class="CoqIde"] $WS5
 assign [class="Emacs"] $WS5
@@ -141,7 +142,8 @@ assign [class="KeePass"] $WS0
 assign [class="discord"] $WS0
 
 assign [instance="skype"] $WSA
-assign [class="Chromium" title="Signal"] $WSA
+assign [class="Signal"] $WSA
+assign [class="zoom"] $WSA
 
 # kill focused window
 bindsym $alt+F4 kill
