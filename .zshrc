@@ -153,6 +153,8 @@ alias -s xml='atom'
 alias -s v='coqide'
 alias -s pdf='evince'
 
+alias rmdup='rm *\(*\).*'
+
 # alias commit='git commit -am "$(curl -s whatthecommit.com/index.txt)"'
 
 # export PATH=~/bin:$PATH:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
