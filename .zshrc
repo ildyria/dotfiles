@@ -163,6 +163,7 @@ alias rmdup='rm *\(*\).*'
 
 # alias svn=~/.dotfiles/bin/svn-color.py
 # export GTK_IM_MODULE=xim
+export PATH=/usr/local/go/bin:$PATH
 
 export RISCV=/opt/riscv/
 
