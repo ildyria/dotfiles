@@ -1,3 +1,10 @@
+# NO LONGER MAINTAINED & NOR USED
+
+Migrated to a fully automated install with Ansible:
+https://github.com/ildyria/laptop-setup-ansible
+
+------------------------
+
 # dotfiles
 
 Theme based on: [i3-gaps neon blue][1] by [emacs\_god][2] with [i3wm-gaps][4] and [i3blocks-gaps][5]
